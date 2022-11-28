@@ -1,7 +1,8 @@
 "use strict";
 
-
 const form = document.forms[0]
+form.addEventListener("submit", (event) => event.preventDefault()) ///предотвращает отправку формы
+
 const inputTask = document.querySelector(".form_in");
 
 const addTask = document.querySelector(".btn");
@@ -13,8 +14,6 @@ const delAll = document.querySelector(".del_all")
 const buttons = document.querySelector(".del_btn")
 
 const delChecked = document.querySelector(".del")
-
-form.addEventListener("submit", (event) => event.preventDefault()) ///предотвращает отправку формы
 
 function createTask(state, taskText) {
   const task = document.createElement("div");
@@ -73,7 +72,6 @@ addTask.addEventListener("click", () => {
   input.value = ""
   saveTasks()
 })
-
 // обработка нажатий на таску
 taskPlace.addEventListener("click", (event) => {
   let check = event.target
@@ -93,17 +91,13 @@ taskPlace.addEventListener("click", (event) => {
     }
   }
 })
-
 // удаление всех
 delAll.addEventListener("click", () => {
   localStorage.clear()
   taskPlace.innerHTML = ""
   buttons.style.display = "none"
-
 })
-
 // удаление отмеченных
-
 delChecked.addEventListener("click", () => {
   let arr = []
   const todos = document.querySelectorAll(".option")

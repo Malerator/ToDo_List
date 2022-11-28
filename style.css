@@ -74,7 +74,7 @@ h1 {
 }
 
 .btn:hover {
-  color: #00a4e5;
+  color: grey;
   transition: 0.2s;
 }
 
